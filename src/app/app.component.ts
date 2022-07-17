@@ -11,4 +11,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'course-manager';
+  // Interpolação no html para usar o valor.
+  name: string = 'John';
 }
