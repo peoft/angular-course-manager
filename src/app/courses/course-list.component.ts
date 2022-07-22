@@ -5,7 +5,6 @@ import { CourseService } from "./course.service";
 
 // Decorator descreve que a classe é um componente
 @Component ({
-    selector: 'app-course-list',
     templateUrl: './course-list.component.html'
 })
 // Tornando a classe pública.
