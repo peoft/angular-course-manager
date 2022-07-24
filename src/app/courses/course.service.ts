@@ -16,6 +16,13 @@ export class CourseService {
     retrieveById(id: number): Course {
        return COURSES.find((courseIterator: Course): Boolean => courseIterator.id === id) as Course;
     }
+
+    save(course: Course): void {
+        if (course.id) {
+            const index = COURSES.findIndex((courseIterator: Course) => courseIterator.id === course.id);
+            COURSES[index] = course;
+        }
+    }
 }
 
 var COURSES: Course[] = [
