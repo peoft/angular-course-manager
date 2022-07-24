@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Course } from "./course";
+import { HttpClient } from '@angular/common/http';
+import { Observable } from "rxjs";
 
 // Classe de serviço. O nome já identifica a responsabilidade.
 @Injectable({
@@ -9,8 +11,13 @@ import { Course } from "./course";
 })
 
 export class CourseService {
-    retrieveAll(): Course[] {
-        return COURSES;
+    private courseUrl: string = 'http://localhost:3100/api/courses'
+    
+    constructor(private httpClient: HttpClient) {
+
+    }
+    retrieveAll(): Observable<Course[]> {
+        return this.httpClient.get<Course[]>(this.courseUrl);
     }
 
     retrieveById(id: number): Course {
